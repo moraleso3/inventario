@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BsImages, BsX } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "firebase";
 import "firebase/auth";
 
@@ -10,7 +10,7 @@ import '../css/profile.css';
 
 const Profile = ({ mode, setMode }) => {
 
-    const history = useNavigate();
+    const history = useHistory();
     const [modalConfig, setModalConfig] = useState({show: false, text: '', type: '', showButton: true});
     const [user, setUser] = useState({});
 

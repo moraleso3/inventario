@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import useUser from '../customHooks/useUser';
 
@@ -20,26 +20,16 @@ export default function App() {
     return (
       <div className={mode ? 'dark' : 'light'}>
         <Router>
-          {
-            user
-            ? (
-              <Routes>
-                <Route path="/dashboard" exact><Dashboard mode={mode} setMode={setMode}/></Route>
-                <Route path="/products" exact><Products mode={mode} setMode={setMode}/></Route>
-                <Route path="/moves" exact><Moves mode={mode} setMode={setMode}/></Route>
-                <Route path="/profile" exact><Profile mode={mode} setMode={setMode}/></Route>
-                <Route><Error /></Route>
-              </Routes>
-            )
-            : (
-              <Routes>
-                <Route path="/login" exact><Login mode={mode} setMode={setMode}/></Route>
-                <Route path="/pricing" exact><Pricing mode={mode} setMode={setMode}/></Route>
-                <Route path="/" exact><Home mode={mode} setMode={setMode}/></Route>
-                <Route><Error/></Route>
-              </Routes>
-            )
-          }
+        <Switch>
+          <Route path="/dashboard" exact><Dashboard mode={mode} setMode={setMode}/></Route>
+          <Route path="/products" exact><Products mode={mode} setMode={setMode}/></Route>
+          <Route path="/moves" exact><Moves mode={mode} setMode={setMode}/></Route>
+          <Route path="/profile" exact><Profile mode={mode} setMode={setMode}/></Route>
+          <Route path="/login" exact><Login mode={mode} setMode={setMode}/></Route>
+          <Route path="/pricing" exact><Pricing mode={mode} setMode={setMode}/></Route>
+          <Route path="/" exact><Home mode={mode} setMode={setMode}/></Route>
+          <Route><Error/></Route>
+        </Switch>
         </Router>
       </div>
     );

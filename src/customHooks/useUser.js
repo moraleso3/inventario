@@ -7,10 +7,10 @@ import "firebase/auth";
 const useUser = () => {
     const [user, setUser] = useState(null);
 
-    firebase.auth().onAuthStateChanged((currentUser) => {
-        if (currentUser)
-            setUser(currentUser);
-    });
+    // firebase.auth().onAuthStateChanged((currentUser) => {
+    //     if (currentUser)
+    //         setUser(currentUser);
+    // });
 
     return {
         user

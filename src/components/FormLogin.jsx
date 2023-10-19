@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { MdEmail } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 //Librerias de firebase
 import firebase from "firebase";
@@ -12,7 +12,7 @@ import Modal from './Modal';
 
 const FormLogin = () => {
 
-    const history = useNavigate();
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLogin, setIsLogin] = useState(true);

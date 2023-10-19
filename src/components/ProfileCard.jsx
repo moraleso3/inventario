@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FcLock } from "react-icons/fc";
 import { FaUser, FaSync } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "firebase";
 import "firebase/auth";
 
@@ -13,7 +13,7 @@ import "../css/profileCard.css"
 const ProfileCard = () => {
 
     const { user } = useUser();
-    const history = useNavigate();
+    const history = useHistory();
     const [modalConfig, setModalConfig] = useState({show: false, text: '', type: '', showButton: true})
     const [showPassword, setShowPassword] = useState(false);
 
